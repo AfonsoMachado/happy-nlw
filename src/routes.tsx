@@ -7,8 +7,12 @@ import OrphanagesMap from './pages/OrphanagesMap';
 function Routes() {
   return (
     <BrowserRouter>
-      <Route path="/" component={Landing} />
-      <Route path="/app" component={OrphanagesMap} />
+      {/* Faz com que uma unica rota seja chamada por vez */}
+      <Switch>
+        {/* exact para mostrar somente a rota indicada, excluindo as outras */}
+        <Route path="/" exact component={Landing} />
+        <Route path="/app" component={OrphanagesMap} />
+      </Switch>
     </BrowserRouter>
   );
 }
