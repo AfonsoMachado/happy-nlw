@@ -25,9 +25,10 @@ function OrphanagesMap() {
           <span>Bahia</span>
         </footer>
       </aside>
+
       {/* parametros de exeibição do mapa */}
       <Map
-        center={[12.2587348, -38.9598163]}
+        center={[-12.2587348, -38.9598163]}
         zoom={14}
         style={{
           width: '100%',
@@ -35,7 +36,9 @@ function OrphanagesMap() {
         }}
       >
         {/* escolhendo open street map para exibição */}
-        <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer
+          url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
+        />
       </Map>
 
       <Link to="" className="create-orphanage">
