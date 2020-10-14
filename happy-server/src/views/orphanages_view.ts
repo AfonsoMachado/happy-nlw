@@ -1,4 +1,5 @@
 import Orphanage from '../models/Orphanage';
+import ImagesView from './images_view';
 
 export default {
   // retorna um orfanato na maneira que o frontend precisa dele
@@ -12,6 +13,7 @@ export default {
       instructions: orphanage.instructions,
       opening_hours: orphanage.opening_hours,
       open_on_weekend: orphanage.open_on_weekend,
+      images: ImagesView.renderMany(orphanage.images),
     };
   },
 
