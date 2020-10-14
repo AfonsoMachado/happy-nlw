@@ -14,12 +14,14 @@
 </p>
 
 ## :computer: Tecnologias
+
 <ul>
  <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
   <li><a href="https://reactjs.org/">ReactJS</a></li>
   <li><a href="https://reactnative.dev/">React Native</a></li>
   <li><a href="https://reactrouter.com/">React Router</a></li>
   <li><a href="https://react-leaflet.js.org/">React Leaflet</a></li>
+  <li><a href="https://typeorm.io/#/">TypeORM</a></li>
 </ul>
 
 ## :fire: Instalação
@@ -30,6 +32,31 @@
 
 ```
 $ git clone https://github.com/AfonsoMachado/proffy-nlw.git
+```
+
+### Executando back-end
+
+```bash
+# Go to server folder
+$ cd happy-server
+
+# Install Dependencies
+$ yarn install
+
+# Run Aplication
+$ yarn start
+```
+
+Executando em http://localhost:3333/ .
+
+#### Criando banco de dados
+
+```bash
+# Go to server folder
+$ cd happy-server
+
+# Run Migrations
+$ yarn typeorm migration:run
 ```
 
 ### Executando front-end web
@@ -44,6 +71,7 @@ $ yarn install
 # Run Aplication
 $ yarn start
 ```
+
 Executando em http://localhost:3000/ .
 
 ## :memo: Licença
