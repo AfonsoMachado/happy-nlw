@@ -16,6 +16,7 @@
   max-width: 1100px;
 
   height: 100%;
+  /* alterado - foi alterado tambem a resolução do svg landing*/
   max-height: 580px;
 
   display: flex;
