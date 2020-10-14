@@ -1,5 +1,7 @@
 import express, { response } from 'express';
 
+import './database/connection';
+
 // incializando app express, para lidar com rotas da aplicação
 const port = 3333;
 const app = express();
@@ -44,3 +46,12 @@ console.log(`Servidor executando na porta ${port}`);
 
 //   return res.json({ message: 'hello' });
 // });
+
+/**
+ * Formas de acessar banco de dados
+ *
+ * Driver nativo: SQL
+ * Query Builder: Knex
+ * ORM (Objecr Relation Mapping): cada elemendo do db é uma instancia de uma classe referente a ele no app
+ *
+ */
