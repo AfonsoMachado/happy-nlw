@@ -39,6 +39,7 @@
 
 -------------------------------
 
-CRIANDO MIGRATIONS
+CRIANDO E DESFAZENDO MIGRATIONS
 
 yarn typeorm migration:run
+yarn typeorm migration:revert

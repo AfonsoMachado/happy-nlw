@@ -10,7 +10,7 @@ const app = express();
 // habilitando uso do json
 app.use(express.json());
 
-app.get('/users', (request, response) => {
+app.post('/orphanages', (request, response) => {
   return response.json({ message: 'hello' });
 });
 
