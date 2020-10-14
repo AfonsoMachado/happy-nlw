@@ -43,3 +43,7 @@ CRIANDO E DESFAZENDO MIGRATIONS
 
 yarn typeorm migration:run
 yarn typeorm migration:revert
+
+CRIANDO TABELA
+
+yarn typeorm migration:create -n create_images
