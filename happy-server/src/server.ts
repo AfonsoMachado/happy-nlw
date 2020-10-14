@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/users', (request, response) => {
-  return res.json({ message: 'hello' });
+  return response.json({ message: 'hello' });
 });
 
 app.listen(port);
