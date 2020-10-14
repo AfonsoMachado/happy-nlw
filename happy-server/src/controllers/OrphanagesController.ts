@@ -38,6 +38,12 @@ export default {
 
     const orphanagesRepository = getRepository(Orphanage);
 
+    // é um array de arquivos
+    const requestImages = request.files as Express.Multer.File[];
+    const images = requestImages.map((image) => {
+      return { path: image.filename };
+    });
+
     // criando um novo orfanato, deixando pré criado
     const orphanage = orphanagesRepository.create({
       name,
@@ -47,6 +53,7 @@ export default {
       instructions,
       opening_hours,
       open_on_weekend,
+      images,
     });
 
     // salvando no db
