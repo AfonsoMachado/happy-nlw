@@ -15,6 +15,7 @@ export default function CreateOrphanage() {
   const [about, setAbout] = useState('');
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
+  const [open_on_weekend, setOpenOnWeekend] = useState(true);
 
   function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng;
@@ -28,7 +29,17 @@ export default function CreateOrphanage() {
     // para que nao recarregue a pagina ao submeter o formulario
     event.preventDefault();
 
-    console.log({ position, name, about, instructions, opening_hours });
+    const { latitude, longitude } = position;
+
+    console.log({
+      name,
+      about,
+      latitude,
+      longitude,
+      instructions,
+      opening_hours,
+      open_on_weekend,
+    });
   }
 
   return (
@@ -86,7 +97,7 @@ export default function CreateOrphanage() {
 
               <div className="uploaded-image"></div>
 
-              <button className="new-image">
+              <button type="button" className="new-image">
                 <FiPlus size={24} color="#15b6d6" />
               </button>
             </div>
@@ -117,10 +128,24 @@ export default function CreateOrphanage() {
               <label htmlFor="open_on_weekends">Atende fim de semana</label>
 
               <div className="button-select">
-                <button type="button" className="active">
+                <button
+                  type="button"
+                  className={open_on_weekend ? 'active' : ''}
+                  onClick={() => {
+                    setOpenOnWeekend(true);
+                  }}
+                >
                   Sim
                 </button>
-                <button type="button">Não</button>
+                <button
+                  type="button"
+                  className={!open_on_weekend ? 'active' : ''}
+                  onClick={() => {
+                    setOpenOnWeekend(false);
+                  }}
+                >
+                  Não
+                </button>
               </div>
             </div>
           </fieldset>
