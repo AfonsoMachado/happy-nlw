@@ -22,6 +22,11 @@
   <li><a href="https://reactrouter.com/">React Router</a></li>
   <li><a href="https://react-leaflet.js.org/">React Leaflet</a></li>
   <li><a href="https://typeorm.io/#/">TypeORM</a></li>
+  <li><a href="https://typehttps://github.com/expressjs/multer#readme">Multer</a></li>
+  <li><a href="https://github.com/mapbox/node-sqlite3">SQLite3</a></li>
+   <li><a href="http://expressjs.com/">Express</a></li>
+   <li><a href="https://github.com/expressjs/cors#readme">Cors</a></li>
+   <li><a href="https://github.com/jquense/yup">Yup</a></li>
 </ul>
 
 ## :fire: Instalação
