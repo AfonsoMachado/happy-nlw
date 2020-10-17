@@ -9,8 +9,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import mapMarker from '../images/map-marker.png';
+import { useNavigation } from '@react-navigation/native';
 
 export default function OrphanagesMap() {
+  const navigation = useNavigation();
+
+  function handleNavigateToOrphanageDetails() {
+    navigation.navigate('OrphanageDetails');
+  }
+
   return (
     <View style={styles.container}>
       <MapView
@@ -34,7 +41,7 @@ export default function OrphanagesMap() {
             longitude: -38.9598163,
           }}
         >
-          <Callout tooltip onPress={() => {}}>
+          <Callout tooltip onPress={handleNavigateToOrphanageDetails}>
             <View style={styles.calloutContainer}>
               <Text style={styles.calloutText}>Lar das meninas</Text>
             </View>
