@@ -85,7 +85,7 @@ Necesário um smartphone com Android ou iOS, com o aplicativo Expo ([Android](ht
 
 ```bash
 # Go to mobile folder
-$ cd proffy-mobile
+$ cd happy-mobile
 
 # Install Dependencies
 $ yarn install
