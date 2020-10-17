@@ -25,7 +25,10 @@ export default function Routes() {
         <Screen
           name="OrphanageDetails"
           component={OrphanageDetails}
-          options={{ headerShown: true, header: () => <Header /> }}
+          options={{
+            headerShown: true,
+            header: () => <Header title="Orfanato" />,
+          }}
         />
         <Screen name="SelectMapPosition" component={SelectMapPosition} />
         <Screen name="OrphanageData" component={OrphanageData} />
