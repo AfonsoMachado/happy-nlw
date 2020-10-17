@@ -58,10 +58,11 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekend,
+      open_on_weekend: open_on_weekend === 'true',
       images,
     };
 
+    // VALIDAÇÃO DOS DADOS
     const schema = Yup.object().shape({
       name: Yup.string().required(),
       latitude: Yup.number().required(),
