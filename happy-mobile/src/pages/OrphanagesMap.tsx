@@ -18,6 +18,10 @@ export default function OrphanagesMap() {
     navigation.navigate('OrphanageDetails');
   }
 
+  function handleNavigateToCreateOrphanage() {
+    navigation.navigate('SelectMapPosition');
+  }
+
   return (
     <View style={styles.container}>
       <MapView
@@ -53,7 +57,7 @@ export default function OrphanagesMap() {
         <Text style={styles.footerText}>2 orfanatos encontrados</Text>
         <TouchableOpacity
           style={styles.createOrphanageButton}
-          onPress={() => {}}
+          onPress={handleNavigateToCreateOrphanage}
         >
           <Feather name="plus" size={20} color="#fff" />
         </TouchableOpacity>
@@ -67,6 +71,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
+  // dimensão do mapa na tela
   map: {
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height,
