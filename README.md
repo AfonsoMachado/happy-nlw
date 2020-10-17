@@ -79,6 +79,23 @@ $ yarn start
 
 Executando em http://localhost:3000/ .
 
+### Executando aplicação mobile
+
+Necesário um smartphone com Android ou iOS, com o aplicativo Expo ([Android](https://play.google.com/store/apps/details?id=host.exp.exponent) | [iOS](https://apps.apple.com/br/app/expo-client/id982107779)) instalado, ou um emulador rodando uma máquina virtual Android/iOS
+
+```bash
+# Go to mobile folder
+$ cd proffy-mobile
+
+# Install Dependencies
+$ yarn install
+
+# Run Aplication
+$ yarn start
+```
+
+Após a execução, leia o QRCode usando o aplicativo Expo em seu smartphone
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
