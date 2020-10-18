@@ -96,6 +96,23 @@ $ yarn start
 
 Após a execução, leia o QRCode usando o aplicativo Expo em seu smartphone
 
+#### Conectando aplicação mobile com o back-end
+
+```bash
+# Go to services folder
+$ cd happy-mobile/src/services
+
+$ code api.ts
+```
+
+Editar o arquivo 'api.ts' inserindo como baseURL a URL indicada no expo junto com a porta do backend.
+
+Caso esteja usando um emulador de android, executar o seguinte comando no seu terminal:
+
+```bash
+$ adb reverse tcp:3333 tcp:3333
+```
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
