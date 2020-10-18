@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Dimensions, Text } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { MapEvent, Marker } from 'react-native-maps';
 
 import mapMarkerImg from '../../images/map-marker.png';
 
 export default function SelectMapPosition() {
   const navigation = useNavigation();
+  // armazenando os dados da posição de quando o usuario toca na tela
+  const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
   function handleNextStep() {
     navigation.navigate('OrphanageData');
+  }
+
+  function handleSelectMapPosition(event: MapEvent) {
+    setPosition(event.nativeEvent.coordinate);
   }
 
   return (
@@ -20,15 +26,22 @@ export default function SelectMapPosition() {
         initialRegion={{
           latitude: -12.2587348,
           longitude: -38.9598163,
-          latitudeDelta: 0.03,
-          longitudeDelta: 0.03,
+          latitudeDelta: 0.06,
+          longitudeDelta: 0.06,
         }}
         style={styles.mapStyle}
+        onPress={handleSelectMapPosition}
       >
-        <Marker
-          icon={mapMarkerImg}
-          coordinate={{ latitude: -27.2092052, longitude: -49.6401092 }}
-        />
+        {/* inserindo o marcador no mapa com o clique */}
+        {position.latitude !== 0 && (
+          <Marker
+            icon={mapMarkerImg}
+            coordinate={{
+              latitude: position.latitude,
+              longitude: position.longitude,
+            }}
+          />
+        )}
       </MapView>
 
       <RectButton style={styles.nextButton} onPress={handleNextStep}>
