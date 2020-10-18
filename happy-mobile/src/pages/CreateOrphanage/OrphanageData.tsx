@@ -10,8 +10,11 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
+import { useRoute } from '@react-navigation/native';
 
 export default function OrphanageData() {
+  const route = useRoute();
+
   return (
     <ScrollView
       style={styles.container}
@@ -26,8 +29,9 @@ export default function OrphanageData() {
       {/* funciona como textarea */}
       <TextInput style={[styles.input, { height: 110 }]} multiline />
 
-      <Text style={styles.label}>Whatsapp</Text>
-      <TextInput style={styles.input} />
+      {/* TODO implementar campo whatsapp */}
+      {/* <Text style={styles.label}>Whatsapp</Text>
+      <TextInput style={styles.input} /> */}
 
       <Text style={styles.label}>Fotos</Text>
       <TouchableOpacity style={styles.imagesInput} onPress={() => {}}>

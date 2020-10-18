@@ -13,7 +13,8 @@ export default function SelectMapPosition() {
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
 
   function handleNextStep() {
-    navigation.navigate('OrphanageData');
+    // enviando para a proxima tela a posição que o usuario selecionou no mapa
+    navigation.navigate('OrphanageData', { position });
   }
 
   function handleSelectMapPosition(event: MapEvent) {
@@ -44,9 +45,12 @@ export default function SelectMapPosition() {
         )}
       </MapView>
 
-      <RectButton style={styles.nextButton} onPress={handleNextStep}>
-        <Text style={styles.nextButtonText}>Próximo</Text>
-      </RectButton>
+      {/* o botão proximo só aparece se tiver selecionada uma opção */}
+      {position.latitude !== 0 && (
+        <RectButton style={styles.nextButton} onPress={handleNextStep}>
+          <Text style={styles.nextButtonText}>Próximo</Text>
+        </RectButton>
+      )}
     </View>
   );
 }
