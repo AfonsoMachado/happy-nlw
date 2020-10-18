@@ -21,7 +21,7 @@ export default function Routes() {
           cardStyle: { backgroundColor: '#f2f3f5' },
         }}
       >
-        <Screen name="OphanageMap" component={OrphanagesMap} />
+        <Screen name="OrphanagesMap" component={OrphanagesMap} />
         <Screen
           name="OrphanageDetails"
           component={OrphanageDetails}

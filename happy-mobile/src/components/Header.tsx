@@ -13,7 +13,7 @@ export default function Header({ title, showCancel = true }: HeaderProps) {
   const navigation = useNavigation();
 
   function handleGoBackToHomepage() {
-    navigation.navigate('OphanageMap');
+    navigation.navigate('OrphanagesMap');
   }
 
   return (
