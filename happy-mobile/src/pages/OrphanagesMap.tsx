@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 import { Feather } from '@expo/vector-icons';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import mapMarker from '../images/map-marker.png';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import api from '../services/api';
 
@@ -20,11 +20,11 @@ export default function OrphanagesMap() {
   // para navegar entre telas
   const navigation = useNavigation();
 
-  useEffect(() => {
+  useFocusEffect(() => {
     api.get('orphanages').then((response) => {
       setOrphanages(response.data);
     });
-  }, []);
+  });
 
   // função que navega para a tela de OrphanageDetails
   function handleNavigateToOrphanageDetails(id: number) {
