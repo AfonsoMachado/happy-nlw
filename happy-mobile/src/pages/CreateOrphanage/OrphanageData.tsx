@@ -7,10 +7,12 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
 import { useRoute } from '@react-navigation/native';
+import * as ImagePicker from 'expo-image-picker';
 
 // formato dos parametros que chegam da tela anterior
 interface OrphanageDataRouteParams {
@@ -27,6 +29,8 @@ export default function OrphanageData() {
   const [instructions, setInstructions] = useState('');
   const [opening_hours, setOpeningHours] = useState('');
   const [open_on_weekend, setOpenOnWeekend] = useState(true);
+  // array com as imagens selecionadas
+  const [images, setImages] = useState<string[]>([]);
 
   const route = useRoute();
   // capturando parametros que chegam da tela anterior
@@ -44,6 +48,33 @@ export default function OrphanageData() {
       latitude,
       longitude,
     });
+  }
+
+  // chamada quando o usuario clica no botao de adicionar fotos
+  async function handleSelectImagges() {
+    // capturando permissão de acesso a galeria
+    const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
+
+    if (status !== 'granted') {
+      alert('Assim não da, precisamos de acesso às suas fotos...');
+      return;
+    }
+
+    // Parametros da seleção de imagem
+    const result = await ImagePicker.launchImageLibraryAsync({
+      allowsEditing: true,
+      quality: 1,
+      // aceitando apenas imagens
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    });
+
+    if (result.cancelled) return;
+
+    // caminho da imagem no dispositivo do usuario
+    const { uri: image } = result;
+
+    // imutabilidade no react, primeiro copia todo o array, depois atualizado com o array copiado mais a imagem nova
+    setImages([...images, image]);
   }
 
   return (
@@ -70,7 +101,23 @@ export default function OrphanageData() {
       <TextInput style={styles.input} /> */}
 
       <Text style={styles.label}>Fotos</Text>
-      <TouchableOpacity style={styles.imagesInput} onPress={() => {}}>
+
+      <View style={styles.uploadedImagesContainer}>
+        {images.map((image) => {
+          return (
+            <Image
+              key={image}
+              source={{ uri: image }}
+              style={styles.uploadedImage}
+            />
+          );
+        })}
+      </View>
+
+      <TouchableOpacity
+        style={styles.imagesInput}
+        onPress={handleSelectImagges}
+      >
         <Feather name="plus" size={24} color="#15B6D6" />
       </TouchableOpacity>
 
@@ -145,6 +192,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     marginBottom: 16,
     textAlignVertical: 'top',
+  },
+
+  uploadedImagesContainer: {
+    flexDirection: 'row',
+  },
+
+  uploadedImage: {
+    width: 64,
+    height: 64,
+    borderRadius: 20,
+    marginBottom: 32,
+    marginRight: 8,
   },
 
   imagesInput: {
