@@ -54,7 +54,7 @@ export default function OrphanageDetails() {
 
   //  loading da aplicação
   if (!orphanage) {
-    // TODO tela de loading
+    // TODO tela de loading - spinner ou shimmer
     return (
       <View style={styles.container}>
         <Text style={styles.description}>Carregando...</Text>
